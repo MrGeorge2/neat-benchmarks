@@ -1,16 +1,3 @@
-﻿using SharpNeatBenchmark.Utils;
-using SharpNeatBenchmark.Xor;
+﻿using BenchmarkDotNet.Running;
 
-var experimentFactory = new XorExperimentFactory();
-var ea = Utils.CreateNeatEvolutionAlgorithm(experimentFactory);
-
-ea.Initialise();
-
-for (var i = 0; i < 100; i++)
-{
-    ea.PerformOneGeneration();
-}
-
-/*
 BenchmarkRunner.Run<SharpNeatBenchmark.SharpNeatBenchmark>();
-*/
