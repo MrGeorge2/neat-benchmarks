@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"flag"
 	"fmt"
 	"log"
 	"math/rand"
@@ -17,13 +16,11 @@ import (
 	"github.com/yaricom/goNEAT/v3/neat/genetics"
 )
 
-// The experiment runner boilerplate code
-func main() {
+func neatExecutor() {
+
 	contextPath := "./data/xor.neat"
 	genomePath := "./data/xorstartgenes"
 	experimentName := "XOR"
-
-	flag.Parse()
 
 	// Seed the random-number generator with current time so that
 	// the numbers will be different every time we run.
@@ -98,7 +95,9 @@ func main() {
 	// Print experiment results statistics
 	//
 	expt.PrintStatistics()
+}
 
-	fmt.Printf(">>> Start genome file:  %s\n", genomePath)
-	fmt.Printf(">>> Configuration file: %s\n", contextPath)
+// The experiment runner boilerplate code
+func main() {
+	neatExecutor()
 }

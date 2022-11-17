@@ -2,7 +2,6 @@ package xor
 
 import (
 	"context"
-	"fmt"
 	"math"
 
 	"github.com/yaricom/goNEAT/v3/experiment"
@@ -43,14 +42,6 @@ func (e *xorGenerationEvaluator) GenerationEvaluate(ctx context.Context, pop *ge
 	// Fill statistics about current epoch
 	epoch.FillPopulationStatistics(pop)
 
-	if epoch.Solved {
-		// print winner organism
-		org := epoch.Champion
-		if depth, err := org.Phenotype.MaxActivationDepthFast(0); err == nil {
-			neat.InfoLog(fmt.Sprintf("Activation depth of the winner: %d\n", depth))
-		}
-	}
-
 	return nil
 }
 
@@ -64,14 +55,8 @@ func (e *xorGenerationEvaluator) orgEvaluate(organism *genetics.Organism) (bool,
 		{1.0, 1.0, 1.0}}
 
 	netDepth, err := organism.Phenotype.MaxActivationDepthFast(0) // The max depth of the network to be activated
-	if err != nil {
-		neat.WarnLog(fmt.Sprintf(
-			"Failed to estimate maximal depth of the network with loop:\n%s\nUsing default depth: %d",
-			organism.Genotype, netDepth))
-	}
-	neat.DebugLog(fmt.Sprintf("Network depth: %d for organism: %d\n", netDepth, organism.Genotype.Id))
+
 	if netDepth == 0 {
-		neat.DebugLog(fmt.Sprintf("ALERT: Network depth is ZERO for Genome: %s", organism.Genotype))
 		return false, nil
 	}
 
@@ -81,20 +66,17 @@ func (e *xorGenerationEvaluator) orgEvaluate(organism *genetics.Organism) (bool,
 	// Load and activate the network on each input
 	for count := 0; count < 4; count++ {
 		if err = organism.Phenotype.LoadSensors(in[count]); err != nil {
-			neat.ErrorLog(fmt.Sprintf("Failed to load sensors: %s", err))
 			return false, err
 		}
 
 		// Use depth to ensure full relaxation
 		if success, err = organism.Phenotype.ForwardSteps(netDepth); err != nil {
-			neat.ErrorLog(fmt.Sprintf("Failed to activate network: %s", err))
 			return false, err
 		}
 		out[count] = organism.Phenotype.Outputs[0].Activation
 
 		// Flush network for subsequent use
 		if _, err = organism.Phenotype.Flush(); err != nil {
-			neat.ErrorLog(fmt.Sprintf("Failed to flush network: %s", err))
 			return false, err
 		}
 	}
@@ -113,7 +95,6 @@ func (e *xorGenerationEvaluator) orgEvaluate(organism *genetics.Organism) (bool,
 
 	if organism.Fitness > fitnessThreshold {
 		organism.IsWinner = true
-		neat.InfoLog(fmt.Sprintf(">>>> Output activations: %e\n", out))
 
 	} else {
 		organism.IsWinner = false
