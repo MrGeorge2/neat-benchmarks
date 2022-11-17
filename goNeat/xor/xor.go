@@ -93,12 +93,7 @@ func (e *xorGenerationEvaluator) orgEvaluate(organism *genetics.Organism) (bool,
 		organism.Fitness = 0.0
 	}
 
-	if organism.Fitness > fitnessThreshold {
-		organism.IsWinner = true
-
-	} else {
-		organism.IsWinner = false
-	}
+	organism.IsWinner = false
 
 	return organism.IsWinner, nil
 }

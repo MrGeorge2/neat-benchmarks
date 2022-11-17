@@ -74,12 +74,6 @@
 /home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/runtimes/win/lib/net6.0/System.Management.dll
 /home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/Redzen.dll
 /home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/SharpNeat.dll
-/home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/log4net.dll
-/home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/System.Configuration.ConfigurationManager.dll
-/home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/System.Security.Permissions.dll
-/home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/System.Security.Cryptography.ProtectedData.dll
-/home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/SharpNeat.pdb
-/home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/bin/Release/net7.0/SharpNeat.xml
 /home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/obj/Release/net7.0/SharpNeatBenchmark.csproj.AssemblyReference.cache
 /home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/obj/Release/net7.0/SharpNeatBenchmark.GeneratedMSBuildEditorConfig.editorconfig
 /home/jirihejdusek/Workspaces/trevor/neatbenchmark/neat-benchmarks/SharpNeat/SharpNeat/obj/Release/net7.0/SharpNeatBenchmark.AssemblyInfoInputs.cache
